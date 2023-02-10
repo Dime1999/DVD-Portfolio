@@ -1,0 +1,777 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+.change-theme {
+  font-family: "Times New Roman", Times, serif;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  font-size: 1.1rem;
+  transition: all 0.4s ease-in-out;
+}
+
+body {
+  font-family: "Times New Roman", Times, serif;
+  background-color: #000000;
+  color: #ffffff;
+  font-size: 1.1rem;
+  transition: all 0.4s ease-in-out;
+}
+
+/*Code starting here was written with help from this tutorial: https://www.youtube.com/watch?v=8M8xxYlIXXQ*/
+.container {
+  position: relative;
+  width: 1200px;
+  height: 300px;
+  margin: 240px auto;
+  right: 120px;
+}
+
+.container .content {
+  position: relative;
+  width: 370px;
+  height: 270px;
+  background: crimson;
+  float: left;
+  margin: 15px;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.container .content .icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #f00;
+  transition: 0.5;
+  z-index: 1;
+}
+
+.container .content:hover .icon {
+  top: 20px;
+  left: calc(50% - 40px);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.container .content .icon .fa {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 80px;
+  transition: 0.5s;
+  color: #fff;
+}
+
+.container .content:hover .icon .fa {
+  font-size: 40px;
+}
+
+.container .content:hover .details {
+  top: 100px;
+  opacity: 1;
+}
+
+/*!!!!!end of content boxes!!!!!!*/
+p {
+  font-weight: bold;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  font-family: inherit;
+  color: inherit;
+}
+
+/*Start of Portfolio SASS, made with help from this tutorial: https://www.youtube.com/watch?v=xV7S8BhIeBo*/
+section {
+  min-height: 100vh;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 3rem 18rem;
+}
+
+.section {
+  transform: translateY(-100%) scale(0);
+  transition: all 0.4s ease-in-out;
+}
+
+.sec1 {
+  display: none;
+  transform: translateY(0) scale(1);
+}
+
+.sec2 {
+  display: none;
+  transform: translateY(0) scale(1);
+}
+
+.sec3 {
+  display: none;
+  transform: translateY(0) scale(1);
+}
+
+.sec4 {
+  display: none;
+  transform: translateY(0) scale(1);
+}
+
+.active {
+  display: block;
+  -webkit-animation: scaleAnimation 1s ease-in-out;
+          animation: scaleAnimation 1s ease-in-out;
+}
+@-webkit-keyframes scaleAnimation {
+  0% {
+    transform: translateY(-100%) scaleY(0);
+  }
+  100% {
+    transform: translateY(0) scaleY(1);
+  }
+}
+@keyframes scaleAnimation {
+  0% {
+    transform: translateY(-100%) scaleY(0);
+  }
+  100% {
+    transform: translateY(0) scaleY(1);
+  }
+}
+
+.controls {
+  position: fixed;
+  z-index: 10;
+  top: 50%;
+  right: 1%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-50%);
+}
+.controls .active-btn {
+  background-color: #cf4949 !important;
+  transition: all 0.4s ease-in-out;
+}
+.controls .active-btn i {
+  color: #ffffff;
+}
+.controls .control {
+  padding: 1rem;
+  background-color: #454e56;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.7rem;
+  box-shadow: 0 3px 15px rgb(0, 0, 0);
+}
+.controls .control i {
+  font-size: 1.2rem;
+  color: #b2becd;
+  pointer-events: none;
+}
+
+.theme-btn {
+  bottom: 20px;
+  right: 1.5%;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: #454e56;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.1s ease-in-out;
+}
+.theme-btn:active {
+  transform: translateY(-3px);
+}
+.theme-btn i {
+  font-size: 1.4rem;
+  color: #b2becd;
+  pointer-events: none;
+}
+
+/*Header Content*/
+.header-content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  min-height: 100vh;
+}
+.header-content .left-header {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.header-content .left-header .h-shape {
+  transition: all 0.4s ease-in-out;
+  width: 65%;
+  height: 100%;
+  background-color: chocolate;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  /*From https://www.cssportal.com/css-clip-path-generator/*/
+  -webkit-clip-path: polygon(0 0, 89% 0, 100% 100%, 0% 100%);
+          clip-path: polygon(0 0, 89% 0, 100% 100%, 0% 100%);
+}
+.header-content .left-header .image {
+  border-radius: 14px;
+  height: 100%;
+  width: 68%;
+  margin-left: 4rem;
+  background-color: rgb(0, 0, 0);
+  transition: all 0.4s ease-in-out;
+}
+.header-content .left-header .image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: all 0.4s ease-in-out;
+  filter: grayscale(100%);
+}
+.header-content .left-header .image img:hover {
+  filter: grayscale(0);
+}
+.header-content .right-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 18rem;
+}
+.header-content .right-header .name {
+  font-size: 3rem;
+}
+.header-content .right-header .name span {
+  color: #cf4949;
+}
+.header-content .right-header p {
+  margin: 1.5rem 0;
+  line-height: 2rem;
+}
+
+.btn-contain {
+  display: flex;
+  align-self: flex-start;
+}
+
+.main-btn {
+  border-radius: 30px;
+  color: inherit;
+  font-weight: 600;
+  position: relative;
+  border: 1px solid #cf4949;
+  display: flex;
+  align-self: flex-start;
+  align-items: center;
+  overflow: hidden;
+}
+.main-btn .btn-text {
+  padding: 0 2rem;
+}
+.main-btn .btn-icon {
+  background-color: #cf4949;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  padding: 1rem;
+}
+.main-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  /*translate causes the color to go right if positive 100 and left if negative*/
+  transform: translateX(100%);
+  transition: all 0.4s ease-out;
+  z-index: -1;
+}
+.main-btn:hover::before {
+  width: 100%;
+  height: 100%;
+  background-color: #cf4949;
+  transform: translateX(0);
+  transition: all 0.4s ease-out;
+}
+
+header {
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/*About Section*/
+.about-con {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding-top: 3.5rem;
+  padding-bottom: 5rem;
+}
+.about-con .right-info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 2rem;
+}
+.about-con .right-info .about-item {
+  border: 1px solid #2a2e35;
+  border-radius: 5px;
+  transition: all 0.4s ease-in-out;
+  box-shadow: 1px 2px 15px black;
+}
+.about-con .right-info .about-item:hover {
+  cursor: default;
+  transform: translateY(-5px);
+  border: 1px solid #cf4949;
+  box-shadow: 1px 4px 15px black;
+}
+.about-con .right-info .about-item .abt-text {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+.about-con .right-info .about-item .abt-text .large-words {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #cf4949;
+}
+.about-con .right-info .about-item .abt-text .small-words {
+  padding-left: 3rem;
+  position: relative;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+}
+.about-con .right-info .about-item .abt-text .small-words::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 15px;
+  width: 2rem;
+  height: 2px;
+  background-color: #2a2e35;
+}
+.about-con .left-info {
+  padding-right: 1rem;
+}
+.about-con .left-info p {
+  line-height: 2rem;
+}
+.about-con .left-info h4 {
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+/*My Portfolio Style*/
+.work-desc {
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2rem;
+  margin-top: 3rem;
+}
+.projects .project {
+  position: relative;
+}
+.projects .project .image {
+  width: 100%;
+  height: 100%;
+}
+.projects .project .image img {
+  width: 100%;
+  height: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 15px;
+}
+.projects .project .hover-item {
+  width: 100%;
+  height: 100%;
+  background-color: #cf4949;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.4s ease-in-out;
+}
+.projects .project .hover-item h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.projects .project .hover-item .icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.projects .project .hover-item .icons .icon {
+  background-color: #000000;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 1rem;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+}
+.projects .project .hover-item .icons .icon i {
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin: 0 1rem;
+}
+.projects .project .hover-item .icons .icon:hover {
+  background-color: #ffffff;
+}
+.projects .project .hover-item .icons .icon:hover i {
+  color: #000000;
+}
+
+.project:hover .hover-item {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.contact-content-con {
+  display: flex;
+  padding-top: 3.5rem;
+}
+.contact-content-con .left-contact {
+  flex: 2;
+}
+.contact-content-con .left-contact h4 {
+  margin-top: 1rem;
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+.contact-content-con .left-contact p {
+  margin: 1rem 0;
+  line-height: 2rem;
+}
+.contact-content-con .left-contact .contact-info .contact-obj {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.contact-content-con .left-contact .contact-info .contact-obj p {
+  margin: 0.3rem 0;
+  padding: 0;
+}
+.contact-content-con .left-contact .contact-info .contact-obj .icon {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+}
+.contact-content-con .left-contact .contact-info .contact-obj .icon i {
+  display: flex;
+  align-items: center;
+  font-size: 1.3rem;
+}
+.contact-content-con .left-contact .contact-icon {
+  display: flex;
+  margin-top: 2rem;
+}
+.contact-content-con .left-contact .contact-icon a {
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  background-color: #2a2e35;
+  cursor: pointer;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 0 0.4rem;
+  transition: all 0.4s ease-in-out;
+}
+.contact-content-con .left-contact .contact-icon a:hover {
+  background-color: #cf4949;
+}
+.contact-content-con .left-contact .contact-icon a:hover i {
+  color: #000000;
+}
+.contact-content-con .left-contact .contact-icon a i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+}
+
+#fix-img {
+  width: 500px;
+  height: 100%;
+}
+
+#skills-con {
+  margin-top: 0%;
+}
+
+.name {
+  position: relative;
+  text-align: center;
+}
+
+#jobName {
+  margin-top: 50%;
+  margin-bottom: 5%;
+}
+
+.main-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.main-title h2 {
+  position: relative;
+  text-transform: uppercase;
+  font-size: 4rem;
+  font-weight: 700;
+}
+.main-title h2 span {
+  color: #cf4949;
+}
+
+/*End of Portfolio SASS*/
+.links {
+  background-color: crimson;
+  padding: 50px 50px 50px 50px;
+  width: 1000px;
+}
+
+.external {
+  background-color: crimson;
+  padding: 50px 50px 50px 50px;
+  width: 1000px;
+}
+
+.work {
+  background-color: crimson;
+  padding: 50px 50px 50px 50px;
+  width: 1000px;
+}
+
+.skills {
+  background-color: crimson;
+  padding: 50px 50px 50px 50px;
+  width: 1000px;
+}
+
+.edit {
+  position: relative;
+  top: 100px;
+  text-align: center;
+}
+
+#list {
+  position: relative;
+  top: 0px;
+  text-align: center;
+}
+
+.git {
+  color: rgba(0, 255, 55, 0.651);
+  font-weight: bold;
+}
+
+#magic {
+  -webkit-animation: scaleAnimation 1s ease-in-out;
+          animation: scaleAnimation 1s ease-in-out;
+}
+
+table, th, td {
+  border: 5px solid white;
+}
+
+.change-table table, .change-table th, .change-table td {
+  border: 5px solid rgb(0, 0, 0);
+}
+
+/*Code was written with help from this tutorial: https://www.youtube.com/watch?v=8M8xxYlIXXQ*/
+@media screen and (max-width: 600px) {
+  header {
+    padding: 0;
+  }
+  header .right-header {
+    padding: 0 !important;
+  }
+  .theme-btn {
+    width: 50px;
+    height: 50px;
+  }
+  .about-con {
+    grid-template-columns: 1fr;
+    min-width: 100px;
+    min-height: 100vh;
+  }
+  .about-con .right-info {
+    grid-template-columns: 1fr;
+    padding-top: 2.5rem;
+  }
+  .about-con .left-info {
+    padding-right: 0;
+  }
+  .about-con .left-info .main-btn {
+    width: 260px;
+  }
+  .about-con .left-info p {
+    padding-top: 0;
+  }
+  .time-table {
+    grid-template-columns: 1fr;
+    padding-bottom: 6rem;
+  }
+  .projects {
+    grid-template-columns: 1fr;
+    padding-bottom: 6rem;
+  }
+  .container {
+    grid-template-columns: 1fr;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 240px auto;
+  }
+  .container .content .icon {
+    transition: all 0.5s linear;
+  }
+  #about-desc {
+    grid-template-columns: 0fr;
+  }
+  .section {
+    padding: 2rem 2.5rem !important;
+  }
+  #RHP {
+    font-size: large;
+  }
+}
+@media screen and (max-width: 1432px) {
+  header {
+    padding: 0 !important;
+  }
+  .section {
+    padding: 7rem 11rem;
+  }
+  .contact-content-con {
+    flex-direction: column;
+  }
+  .contact-content-con .right-contact {
+    margin-left: 0;
+    margin-top: 2.5rem;
+  }
+  .contact-content-con .right-contact .input-controller .i-c-2 {
+    flex-direction: column;
+  }
+  .contact-content-con .right-contact .input-controller .i-c-2:last-child {
+    margin-left: 0;
+    margin-top: 1.5rem;
+  }
+}
+@media screen and (max-width: 1070px) {
+  .about-con {
+    grid-template-columns: 1fr;
+  }
+  .about-con .right-info {
+    padding-top: 2.5rem;
+  }
+  .projects {
+    grid-template-columns: 1fr 1fr;
+  }
+  .main-title h2 {
+    font-size: 4rem;
+  }
+  .main-title h2 span {
+    font-size: 4rem;
+  }
+  .main-title h2 .btn-txt {
+    font-size: 4.5rem;
+  }
+}
+@media screen and (max-width: 970px) {
+  .section {
+    padding: 7rem 6rem;
+  }
+  .header-content {
+    grid-template-columns: 1fr;
+    padding-bottom: 6rem;
+  }
+  .left-header .h-shape {
+    display: none;
+  }
+  .right-header {
+    grid-row: 1;
+    width: 90%;
+    margin: 0 auto;
+  }
+  .right-header .name {
+    font-size: 2.5rem !important;
+  }
+  .header-content .left-header .image {
+    margin: 0 auto;
+    width: 90%;
+  }
+  .controls {
+    top: auto;
+    bottom: 0;
+    flex-direction: row;
+    justify-content: center;
+    left: 50%;
+    transform: translate(-50%);
+    width: 100%;
+    background-color: #2a2e35;
+  }
+  .controls .control {
+    margin: 1rem 0.3rem;
+  }
+  .controls .theme-btn {
+    position: relative;
+    top: 0px;
+    margin: 1rem 0.3rem;
+    width: 15%;
+  }
+}
+@media screen and (max-width: 700px) {
+  .section {
+    padding: 7rem 3rem;
+  }
+  .main-title h2 {
+    font-size: 3rem;
+  }
+}
+@media screen and (min-width: 300px) and (max-width: 600px) {
+  .section {
+    padding: 15rem 2.5rem;
+  }
+  .section .contact-con {
+    width: 100%;
+    height: 100%;
+  }
+  .section p {
+    margin: 0.5rem;
+    padding: 0;
+  }
+}/*# sourceMappingURL=styles.css.map */
