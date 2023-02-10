@@ -1,0 +1,201 @@
+/*Code was written with help from this tutorial: https://www.youtube.com/watch?v=8M8xxYlIXXQ*/
+
+//Each media query adjusts website dimesions for different sized screens
+@media screen and (max-width: 600px) {
+    header{
+        padding: 0;
+    }
+    header .right-header{
+        padding: 0 !important;
+    }
+
+    .theme-btn{
+        width: 50px;
+        height: 50px;
+    }
+
+    .about-con {
+        grid-template-columns: 1fr;
+        min-width: 100px;
+        min-height: 100vh;
+        .right-info {
+            grid-template-columns: 1fr;
+            padding-top: 2.5rem;
+        }
+        .left-info {
+            padding-right: 0;
+            .main-btn {
+                width: 260px;
+            }
+            p {
+                padding-top: 0;
+            }
+        }
+    }
+
+    .time-table {
+        grid-template-columns: 1fr;
+        padding-bottom: 6rem;
+    }
+
+    .projects{
+        grid-template-columns: 1fr;
+        padding-bottom: 6rem;
+    }
+
+    .container {
+        grid-template-columns: 1fr;
+        position: relative;
+        width: 100px;
+        height: 100px;
+        margin: 240px auto;
+    }
+
+    .container .content .icon {
+        transition: all 0.5s linear;
+    }
+
+    #about-desc{
+        grid-template-columns: 0fr;
+    }
+
+    .section {
+        padding: 2rem 2.5rem !important;
+    }
+
+    #RHP {
+        font-size: large;
+    }
+
+    #github {
+        margin-bottom: 2rem;
+    }
+}
+
+@media screen and (max-width: 1432px) {
+    header {
+        padding: 0 !important; 
+    }
+    .section {
+        padding: 7rem 11rem;
+    }
+    .contact-content-con {
+        flex-direction: column;
+        .right-contact {
+            margin-left: 0;
+            margin-top: 2.5rem;
+        }
+    }
+  
+    .contact-content-con .right-contact .input-controller .i-c-2 {
+        flex-direction: column;
+    }
+
+    .contact-content-con .right-contact .input-controller .i-c-2:last-child {
+        margin-left: 0;
+        margin-top: 1.5rem;
+    }
+
+}
+
+@media screen and (max-width: 1070px) {
+    .about-con {
+        grid-template-columns: 1fr;
+        .right-info {
+            padding-top: 2.5rem;
+        }
+    }
+
+    .projects {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .main-title {
+        h2{
+            font-size: 4rem;
+            span{
+               font-size: 4rem;
+            }
+            .btn-txt {
+                font-size: 4.5rem;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 970px) {
+    .section {
+        padding: 7rem 6rem;
+    }
+
+    .header-content{
+        grid-template-columns: 1fr;
+        padding-bottom: 6rem;
+    }
+
+    .left-header{
+        .h-shape{
+            display: none;
+        }
+    }
+
+    .right-header{
+        grid-row: 1;
+        width: 90%;
+        margin: 0 auto;
+        .name {
+            font-size: 2.5rem !important;
+        }
+    }
+
+    .header-content .left-header .image {
+        margin: 0 auto;
+        width: 90%;
+    }
+
+    .controls{
+        top: auto;
+        bottom: 0;
+        flex-direction: row;
+        justify-content: center;
+        left: 50%;
+        transform: translate(-50%);
+        width: 100%;
+        background-color: $gray5;
+        .control{
+            margin: 1rem .3rem;
+        }
+        .theme-btn{
+            position: relative;
+            top: 0px;
+            margin: 1rem .3rem;
+            width: 15%;
+        }
+    }
+
+}
+
+@media screen and (max-width: 700px) {
+    .section {
+        padding: 7rem 3rem;
+    }
+    .main-title {
+        h2 {
+            font-size: 3rem;
+        }
+    }
+}
+
+@media screen and (min-width: 300px) and (max-width: 600px) {
+    .section{
+        padding: 15rem 2.5rem;
+        .contact-con {
+            width: 100%;
+            height: 100%;
+        }
+        p{
+            margin: .5rem;
+            padding: 0;
+        }
+    }
+}
