@@ -1,0 +1,14 @@
+{
+    "name": "portfolio",
+    "dependencies": {
+        "express": "^4.18.1"
+    },
+    "main": "portfolio.js",
+    "scripts": {
+        "start": "node portfolio.js"
+    },
+    "repository": {
+        "type": "git"
+    },
+    "author": "Dymond"
+}
