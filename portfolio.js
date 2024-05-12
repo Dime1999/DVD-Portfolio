@@ -1,6 +1,9 @@
 //Establish backend libraries
 var express = require("express");
 var app = express();
+var http = require("http");
+
+var port = 8080;
 
 //Allow use of external files
 app.use(express.static(__dirname + '/public2/'));
